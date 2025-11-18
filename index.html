@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumya Singh - Full Stack Developer & Data Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f1e8;
+            color: #3d3d3d;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #e8dcc4 0%, #d4c5a9 100%);
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: #6b5d4f;
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #f5f1e8;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .contact-links a:hover {
+            background-color: #e8dcc4;
+            transform: translateY(-2px);
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #2c2c2c;
+            margin-bottom: 30px;
+            font-weight: 300;
+            border-bottom: 2px solid #d4c5a9;
+            padding-bottom: 10px;
+        }
+
+        .summary {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            font-size: 1.05em;
+            color: #4a4a4a;
+        }
+
+        .experience-item, .project-item {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateX(5px);
+        }
+
+        .experience-item h3, .project-item h3 {
+            color: #6b5d4f;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .role, .project-item .tech {
+            color: #8a7a6a;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .experience-item .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul, .project-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-item li, .project-item li {
+            margin-bottom: 8px;
+            color: #5a5a5a;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h3 {
+            color: #6b5d4f;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-category p {
+            color: #5a5a5a;
+            line-height: 1.8;
+        }
+
+        .achievements-list {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .achievements-list li {
+            margin-bottom: 12px;
+            color: #5a5a5a;
+            padding-left: 10px;
+        }
+
+        .education {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .education h3 {
+            color: #6b5d4f;
+            margin-bottom: 8px;
+        }
+
+        .education p {
+            color: #5a5a5a;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8a7a6a;
+            border-top: 1px solid #d4c5a9;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Soumya Singh</h1>
+        <p>Full Stack Developer | Data Analyst | CS Major</p>
+        <div class="contact-links">
+            <a href="mailto:soumyasmitsingh@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/soumyasmitsingh" target="_blank">LinkedIn</a>
+            <a href="https://github.com/SilK07" target="_blank">GitHub</a>
+            <a href="tel:+919310532825">+91 9310532825</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>About Me</h2>
+            <div class="summary">
+                Results-driven Full-Stack Developer and Data Analyst with hands-on experience in mobile and web application development, predictive analytics, and dashboard design. Proven track record of leading cross-functional teams, delivering production-ready apps, and improving data-driven decision-making. Adept in technologies like Flutter, React, Python, Supabase, and PowerBI. Passionate about solving real-world problems through scalable software and intelligent data insights.
+            </div>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <h3>Full-Stack App Developer</h3>
+                <div class="role">Sideline Ventures (Remote)</div>
+                <div class="date">December 2024 – Present</div>
+                <ul>
+                    <li>Led mobile app "stat." supporting 500+ weekly turf bookings; delivered MVP 2 months ahead of deadline</li>
+                    <li>Supervised 3 developers; integrated Flutter + Supabase + GCP; reduced backend latency by 35%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Technology Associate</h3>
+                <div class="role">Career Services Centre, Bennett University</div>
+                <div class="date">September 2024 – Present</div>
+                <ul>
+                    <li>Created data dashboards for 1.5K+ students across 10+ departments; improved placement tracking</li>
+                    <li>Increased job match rate by 18% via predictive models on student datasets using Pandas & scikit-learn</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Skill Research Cohort Member</h3>
+                <div class="role">Confederation of Indian Industry (Remote)</div>
+                <div class="date">September 2024 – January 2025</div>
+                <ul>
+                    <li>Led 4-member team to collect, clean, and analyze labor data from 5+ sources</li>
+                    <li>Generated 3 insight-driven policy reports using PowerBI; informed national policy discussions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Head of Research</h3>
+                <div class="role">Mobilon</div>
+                <div class="date">August 2024 – February 2025</div>
+                <ul>
+                    <li>Managed all research work for the club, exploring new project ideas and mobile development technologies</li>
+                    <li>Mentored new students to the club</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="project-item">
+                <h3>Smart Expenditure Tracker</h3>
+                <div class="tech">Flutter, ML</div>
+                <ul>
+                    <li>Flutter app that parses SMS and bank statements to auto-classify expenses with 92% accuracy</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Political Landscape Analysis</h3>
+                <div class="tech">Python, Twitter API, BeautifulSoup, VADER</div>
+                <ul>
+                    <li>Scraped 10K+ tweets and performed sentiment analysis with 85% accuracy</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Walmart In-Store Navigator</h3>
+                <div class="tech">React, Chatbot, Location-Based Services</div>
+                <ul>
+                    <li>Built a React-based website with a chatbot that guides users through a custom-built map of Walmart stores</li>
+                    <li>Enabled intuitive product search, aisle navigation, and live interaction using a location-aware recommendation engine</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>C, C++, Java, Python, Dart, JavaScript, SQL</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <p>Flutter, ReactJS, Flutterflow, Pandas, NumPy, scikit-learn, Matplotlib, Seaborn</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <p>Supabase, Firebase, PowerBI, Excel, Git, Jupyter Notebook, GCP</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Domains</h3>
+                    <p>Mobile Development, Full-Stack Development, Data Analysis, Machine Learning, API Integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Achievements</h2>
+            <div class="achievements-list">
+                <ul>
+                    <li>Head Boy, Army Public School – Led 15+ school events and managed discipline for 1.2K students</li>
+                    <li>Winner, President AWWA Ethics Bowl – National Champion (2024)</li>
+                    <li>State-Level Champion – Hindi Debate (2022–23), Govt. of Delhi</li>
+                    <li>Sub Head Sponsorship – Secured travel partner (Safar Travels) for university fest Uphoria 2025</li>
+                    <li>Production Head, Under 25 Event – Led production setup for 4000+ attendees</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education">
+                <h3>B.Tech in Computer Science and Engineering</h3>
+                <p>Bennett University | August 2023 – June 2027 | CGPA: 8.00/10</p>
+                <p><strong>Relevant Courses:</strong> Data Structures & Algorithms, Operating Systems, DBMS, Networks, Machine Learning, Data Mining</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Soumya Singh. All rights reserved.</p>
+    </footer>
+</body>
+</html>
