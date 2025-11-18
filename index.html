@@ -16,6 +16,7 @@
             background-color: #f5f1e8;
             color: #3d3d3d;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -26,23 +27,70 @@
 
         header {
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #e8dcc4 0%, #d4c5a9 100%);
             margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #2c2c2c;
             margin-bottom: 10px;
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         header p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #5a5a5a;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .contact-links {
@@ -51,104 +99,255 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .contact-links a {
             color: #6b5d4f;
             text-decoration: none;
-            padding: 8px 16px;
-            background-color: #f5f1e8;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            padding: 12px 24px;
+            background-color: #fff;
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 0.95em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(212, 197, 169, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .contact-links a:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .contact-links a:hover {
-            background-color: #e8dcc4;
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-links a span {
+            position: relative;
+            z-index: 1;
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 0.8s ease forwards;
         }
 
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+        section:nth-child(6) { animation-delay: 0.6s; }
+
         h2 {
-            font-size: 2em;
+            font-size: 2.2em;
             color: #2c2c2c;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: 300;
-            border-bottom: 2px solid #d4c5a9;
-            padding-bottom: 10px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4c5a9, transparent);
+            transition: width 0.5s ease;
+        }
+
+        section:hover h2::after {
+            width: 150px;
         }
 
         .summary {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            line-height: 1.8;
-            font-size: 1.05em;
+            background: linear-gradient(135deg, #fff 0%, #faf8f3 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            line-height: 1.9;
+            font-size: 1.08em;
             color: #4a4a4a;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .summary::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #e8dcc4, #d4c5a9, #c4b5a0, #d4c5a9);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .summary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .summary:hover::before {
+            opacity: 1;
         }
 
         .experience-item, .project-item {
-            background-color: #fff;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #fff 0%, #faf8f3 100%);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid transparent;
+        }
+
+        .experience-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #d4c5a9, #c4b5a0);
+            transition: height 0.4s ease;
+        }
+
+        .experience-item:hover::before, .project-item:hover::before {
+            height: 100%;
         }
 
         .experience-item:hover, .project-item:hover {
-            transform: translateX(5px);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .experience-item h3, .project-item h3 {
             color: #6b5d4f;
-            font-size: 1.4em;
-            margin-bottom: 5px;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .experience-item:hover h3, .project-item:hover h3 {
+            color: #8a7a6a;
         }
 
         .experience-item .role, .project-item .tech {
             color: #8a7a6a;
             font-style: italic;
             margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .experience-item .date {
             color: #999;
             font-size: 0.9em;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #f5f1e8;
+            border-radius: 12px;
         }
 
         .experience-item ul, .project-item ul {
             margin-left: 20px;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .experience-item li, .project-item li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #5a5a5a;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .experience-item li::before, .project-item li::before {
+            content: '▹';
+            position: absolute;
+            left: -10px;
+            color: #d4c5a9;
+            font-weight: bold;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .skill-category {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #fff 0%, #faf8f3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4c5a9, #c4b5a0);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .skill-category h3 {
             color: #6b5d4f;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
         .skill-category p {
@@ -157,68 +356,123 @@
         }
 
         .achievements-list {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #fff 0%, #faf8f3 100%);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .achievements-list:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .achievements-list li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: #5a5a5a;
-            padding-left: 10px;
+            padding-left: 30px;
+            position: relative;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .achievements-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .achievements-list li:hover {
+            transform: translateX(10px);
+            color: #6b5d4f;
         }
 
         .education {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #fff 0%, #faf8f3 100%);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .education:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .education h3 {
             color: #6b5d4f;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
         }
 
         .education p {
             color: #5a5a5a;
             margin-bottom: 15px;
+            line-height: 1.8;
         }
 
         footer {
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
             color: #8a7a6a;
             border-top: 1px solid #d4c5a9;
-            margin-top: 60px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4c5a9, transparent);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4c5a9, #c4b5a0);
+            z-index: 1000;
+            transition: width 0.1s ease;
         }
 
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             header p {
-                font-size: 1em;
+                font-size: 1.1em;
             }
 
             .contact-links {
                 flex-direction: column;
                 align-items: center;
             }
+
+            h2 {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
     <header>
         <h1>Soumya Singh</h1>
         <p>Full Stack Developer | Data Analyst | CS Major</p>
         <div class="contact-links">
-            <a href="mailto:soumyasmitsingh@gmail.com">Email</a>
-            <a href="https://linkedin.com/in/soumyasmitsingh" target="_blank">LinkedIn</a>
-            <a href="https://github.com/SilK07" target="_blank">GitHub</a>
-            <a href="tel:+919310532825">+91 9310532825</a>
+            <a href="mailto:soumyasmitsingh@gmail.com"><span>📧 Email</span></a>
+            <a href="https://linkedin.com/in/soumyasmitsingh" target="_blank"><span>💼 LinkedIn</span></a>
+            <a href="https://github.com/SilK07" target="_blank"><span>💻 GitHub</span></a>
+            <a href="tel:+919310532825"><span>📱 Phone</span></a>
         </div>
     </header>
 
@@ -349,5 +603,47 @@
     <footer>
         <p>&copy; 2025 Soumya Singh. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollIndicator.style.width = scrollPercentage + '%';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
